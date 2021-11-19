@@ -11,12 +11,17 @@ const url = "mongodb://localhost:27017";
 const dbName = "ocean_bancodados_18_11_2021";
 
 async function main() {
-//    const client = await MongoClient.connect(url);
 
-//    const db = client.db(dbName);
+/*  
+Desativar a DB do localhost para rodar no heroku
 
-//    const collection = db.collection("herois");
+    const client = await MongoClient.connect(url);
 
+    const db = client.db(dbName);
+
+    const collection = db.collection("herois");
+*/
+    // criada const collection = undefined
     const collection = undefined
 
     const app = express();
@@ -26,7 +31,7 @@ async function main() {
     app.use(express.json());
 
     app.get("/", function (req, res) {
-        res.send("Hello, World!");
+        res.send("Olá, Mundo!");
     });
 
     app.get("/oi", function (req, res) {
