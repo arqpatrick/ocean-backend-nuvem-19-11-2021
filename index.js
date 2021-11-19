@@ -11,11 +11,13 @@ const url = "mongodb://localhost:27017";
 const dbName = "ocean_bancodados_18_11_2021";
 
 async function main() {
-    const client = await MongoClient.connect(url);
+//    const client = await MongoClient.connect(url);
 
-    const db = client.db(dbName);
+//    const db = client.db(dbName);
 
-    const collection = db.collection("herois");
+//    const collection = db.collection("herois");
+
+    const collection = undefined
 
     const app = express();
 
@@ -89,7 +91,8 @@ async function main() {
         res.send("Registro removido com sucesso.");
     });
 
-    app.listen(3000);
+    app.listen(process.env.PORT || 3000);
+    // process.env.PORT busca a porta no heroku || "ou" porta 3000
 }
 
 main();
