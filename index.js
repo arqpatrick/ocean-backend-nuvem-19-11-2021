@@ -7,8 +7,8 @@
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 
-const url = "mongodb://localhost:27017";
-const dbName = "ocean_bancodados_18_11_2021";
+const url = "mongodb+srv://admin:WXX9UPZCvJiFIV4g@cluster0.yewek.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const dbName = "ocean_nuvem_19_11_2021";
 
 async function main() {
 
@@ -21,8 +21,20 @@ Desativar a DB do localhost para rodar no heroku
 
     const collection = db.collection("herois");
 */
+
+// Reativar a DB agora conectado no mongo atlas
+    const client = await MongoClient.connect(url);
+
+    const db = client.db(dbName);
+
+    const collection = db.collection("herois");
+
+
     // criada const collection = undefined
+    /*
     const collection = undefined
+    // depois de conectar com o mongo, excluir a const collection
+    */
 
     const app = express();
 
